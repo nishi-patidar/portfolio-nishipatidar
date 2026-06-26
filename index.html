@@ -258,49 +258,13 @@
   .max-w { max-width: 1100px; margin: 0 auto; }
   #about { background: var(--bg2); }
   .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 80px;
-    align-items: center;
-    margin-top: 60px;
-  }
-  .about-img-wrap {
-    position: relative;
-  }
-  .about-img-box {
-    width: 100%;
-    aspect-ratio: 4/5;
-    border-radius: 24px;
-    background: linear-gradient(135deg, rgba(192,132,252,0.15), rgba(56,189,248,0.1));
-    border: 1px solid var(--border2);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 40px;
   }
-  .about-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-  }
-  .about-deco {
-    position: absolute;
-    width: 100px; height: 100px;
-    border: 1px solid rgba(192,132,252,0.3);
-    border-radius: 16px;
-    bottom: -20px;
-    right: -20px;
-    transform: rotate(12deg);
-  }
-  .about-deco2 {
-    position: absolute;
-    width: 60px; height: 60px;
-    background: rgba(192,132,252,0.1);
-    border-radius: 50%;
-    top: -16px;
-    left: -16px;
+  .about-text {
+    max-width: 800px;
   }
   .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: 1.02rem; font-weight: 300; }
   .about-text p strong { color: var(--text); font-weight: 500; }
@@ -320,7 +284,8 @@
     background: var(--border);
     border-radius: 16px;
     overflow: hidden;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
+    max-width: 600px;
   }
   .stat-box {
     background: var(--card);
@@ -412,7 +377,7 @@
   #skills { background: var(--bg2); }
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
     gap: 1rem;
     margin-top: 60px;
   }
@@ -420,7 +385,7 @@
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 1.2rem 0.8rem;
+    padding: 1.5rem 0.8rem;
     text-align: center;
     transition: transform 0.2s, border-color 0.2s, background 0.2s;
     cursor: default;
@@ -430,10 +395,10 @@
     border-color: var(--border2);
     background: var(--bg3);
   }
-  .skill-logo { display: flex; align-items: center; justify-content: center; margin-bottom: 0.7rem; height: 40px; }
-  .skill-logo svg, .skill-logo img { width: 38px; height: 38px; object-fit: contain; }
-  .skill-svg { width: 38px; height: 38px; }
-  .skill-name { font-size: 0.72rem; font-weight: 500; color: var(--muted); line-height: 1.3; }
+  .skill-logo { display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; height: 46px; }
+  .skill-svg { width: 44px; height: 44px; object-fit: contain; }
+  .skill-name { font-size: 0.78rem; font-weight: 600; color: var(--muted); line-height: 1.3; }
+  .invert-icon { filter: invert(1) brightness(100); }
   #experience { background: var(--bg); }
   .timeline {
     position: relative;
@@ -489,37 +454,7 @@
     color: var(--accent);
   }
   .exp-desc { color: var(--muted); font-size: 0.92rem; max-width: 600px; }
-  #resume { background: var(--bg2); }
-  .resume-card {
-    background: var(--card);
-    border: 1px solid var(--border2);
-    border-radius: 24px;
-    padding: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    max-width: 800px;
-    margin: 60px auto 0;
-    flex-wrap: wrap;
-  }
-  .resume-text h3 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 0.5rem; }
-  .resume-text p { color: var(--muted); font-size: 0.95rem; max-width: 380px; }
-  .resume-btn {
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    color: #0a0a0f;
-    padding: 0.9rem 2.2rem;
-    border-radius: 100px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    white-space: nowrap;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex; align-items: center; gap: 10px;
-    flex-shrink: 0;
-  }
-  .resume-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(192,132,252,0.4); }
-  #contact { background: var(--bg); }
+  #contact { background: var(--bg2); }
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -587,7 +522,7 @@
   }
   .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(192,132,252,0.35); }
   footer {
-    background: var(--bg2);
+    background: var(--bg);
     border-top: 1px solid var(--border);
     padding: 2rem 5vw;
     text-align: center;
@@ -602,13 +537,10 @@
     .hero-actions { justify-content: center; }
     .hero-sub { margin: 0 auto 2.2rem; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .about-img-box { max-width: 320px; margin: 0 auto; }
     .contact-grid { grid-template-columns: 1fr; }
     .hero-avatar-wrap { width: 280px; height: 340px; }
     .nav-links { display: none; }
-    .resume-card { flex-direction: column; text-align: center; }
   }
-  .skill-svg { width: 36px; height: 36px; }
 </style>
 </head>
 <body>
@@ -669,79 +601,50 @@
       <div class="avatar-svg-wrap">
         <svg width="200" height="280" viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <radialGradient id="skinGrad" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#f5c5a3"/>
-              <stop offset="100%" stop-color="#e8a882"/>
+            <radialGradient id="skin" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FFDFCD"/>
+              <stop offset="100%" stop-color="#EAAFA0"/>
             </radialGradient>
-            <radialGradient id="hairGrad" cx="50%" cy="30%" r="60%">
-              <stop offset="0%" stop-color="#3a1f0a"/>
-              <stop offset="100%" stop-color="#1a0c04"/>
-            </radialGradient>
-            <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#7c3aed"/>
-              <stop offset="100%" stop-color="#4f46e5"/>
+            <linearGradient id="hair" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#2D1B17"/>
+              <stop offset="100%" stop-color="#1A0F0D"/>
             </linearGradient>
-            <filter id="softShadow">
-              <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.3"/>
-            </filter>
+            <linearGradient id="shirt" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#c084fc"/>
+              <stop offset="100%" stop-color="#818cf8"/>
+            </linearGradient>
           </defs>
 
-          <ellipse cx="100" cy="270" rx="60" ry="8" fill="rgba(0,0,0,0.2)"/>
-          <path d="M40 220 Q45 80 100 68 Q155 80 160 220 Q140 230 135 150 Q115 82 100 80 Q85 82 65 150 Q60 230 40 220Z" fill="url(#hairGrad)"/>
-          <path d="M60 185 Q55 220 52 265 L148 265 Q145 220 140 185 Q120 175 100 175 Q80 175 60 185Z" fill="url(#shirtGrad)"/>
-          <line x1="100" y1="180" x2="100" y2="265" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-          <path d="M85 180 Q100 195 115 180 L115 185 Q100 200 85 185Z" fill="rgba(255,255,255,0.15)"/>
-          <path d="M60 185 Q45 210 50 240 Q55 245 62 240 Q65 215 72 195Z" fill="url(#skinGrad)"/>
-          <path d="M140 185 Q155 210 150 240 Q145 245 138 240 Q135 215 128 195Z" fill="url(#skinGrad)"/>
-          <ellipse cx="51" cy="242" rx="10" ry="7" fill="url(#skinGrad)"/>
-          <ellipse cx="149" cy="242" rx="10" ry="7" fill="url(#skinGrad)"/>
-          <rect x="92" y="158" width="16" height="22" rx="8" fill="url(#skinGrad)"/>
-          <ellipse cx="100" cy="130" rx="44" ry="46" fill="url(#skinGrad)" filter="url(#softShadow)"/>
-          <ellipse cx="57" cy="130" rx="8" ry="10" fill="#e8a882"/>
-          <ellipse cx="143" cy="130" rx="8" ry="10" fill="#e8a882"/>
-          <ellipse cx="57" cy="130" rx="5" ry="7" fill="#d4876a"/>
-          <ellipse cx="143" cy="130" rx="5" ry="7" fill="#d4876a"/>
-          <path d="M58 118 Q60 100 70 90 Q80 78 100 76 Q120 78 130 90 Q140 100 142 118 Q135 95 120 88 Q110 84 100 84 Q90 84 80 88 Q65 95 58 118Z" fill="url(#hairGrad)"/>
-          <path d="M68 105 Q72 85 90 80 Q100 78 110 80 Q128 85 132 105" fill="url(#hairGrad)" stroke="url(#hairGrad)" stroke-width="2"/>
-          <path d="M58 118 Q52 145 53 190 Q65 195 68 180 Q62 148 62 135 Q62 125 64 118Z" fill="url(#hairGrad)"/>
-          <path d="M142 118 Q148 145 147 190 Q135 195 132 180 Q138 148 138 135 Q138 125 136 118Z" fill="url(#hairGrad)"/>
-          <ellipse cx="85" cy="128" rx="13" ry="9" fill="white"/>
-          <ellipse cx="85" cy="129" rx="8" ry="7" fill="#3d1a00"/>
-          <ellipse cx="85" cy="129" rx="5" ry="5" fill="#1a0800"/>
-          <ellipse cx="82" cy="126" rx="2" ry="2" fill="white"/>
-          <ellipse cx="87" cy="130" rx="1" ry="1" fill="white"/>
-          <path d="M72 122 Q78 118 85 119" stroke="#1a0800" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <path d="M85 119 Q90 119 96 123" stroke="#1a0800" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <ellipse cx="115" cy="128" rx="13" ry="9" fill="white"/>
-          <ellipse cx="115" cy="129" rx="8" ry="7" fill="#3d1a00"/>
-          <ellipse cx="115" cy="129" rx="5" ry="5" fill="#1a0800"/>
-          <ellipse cx="112" cy="126" rx="2" ry="2" fill="white"/>
-          <ellipse cx="117" cy="130" rx="1" ry="1" fill="white"/>
-          <path d="M104 123 Q110 119 115 119" stroke="#1a0800" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <path d="M115 119 Q122 118 128 122" stroke="#1a0800" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <path d="M73 115 Q82 110 93 113" stroke="#2d1004" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <path d="M107 113 Q118 110 127 115" stroke="#2d1004" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <path d="M96 138 Q100 148 104 138" stroke="#c48760" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <ellipse cx="96" cy="144" rx="3" ry="2" fill="rgba(0,0,0,0.08)"/>
-          <ellipse cx="104" cy="144" rx="3" ry="2" fill="rgba(0,0,0,0.08)"/>
-          <path d="M86 156 Q100 168 114 156" stroke="#c0726a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <path d="M89 156 Q100 164 111 156" fill="#e87070" opacity="0.6"/>
-          <ellipse cx="74" cy="140" rx="10" ry="7" fill="#f4a0a0" opacity="0.45"/>
-          <ellipse cx="126" cy="140" rx="10" ry="7" fill="#f4a0a0" opacity="0.45"/>
-          <circle cx="57" cy="138" r="4" fill="#c084fc"/>
-          <circle cx="143" cy="138" r="4" fill="#c084fc"/>
-          <circle cx="57" cy="145" r="3" fill="#818cf8"/>
-          <circle cx="143" cy="145" r="3" fill="#818cf8"/>
-          <rect x="38" y="245" width="124" height="18" rx="4" fill="#1e1e2e" stroke="#333350" stroke-width="1"/>
-          <rect x="44" y="235" width="112" height="14" rx="3" fill="#252535" stroke="#333350" stroke-width="1"/>
-          <rect x="46" y="237" width="108" height="10" rx="2" fill="#4f46e5" opacity="0.3"/>
-          <circle cx="56" cy="250" r="1.5" fill="#4a4a6a"/>
-          <circle cx="65" cy="250" r="1.5" fill="#4a4a6a"/>
-          <circle cx="74" cy="250" r="1.5" fill="#4a4a6a"/>
-          <circle cx="100" cy="254" rx="20" ry="3" fill="#333350" rx="3"/>
-          <rect x="80" y="252" width="40" height="5" rx="2.5" fill="#333350"/>
-          <circle cx="100" cy="108" r="3" fill="#c084fc"/>
-          <animate attributeName="transform" values="translate(0,0);translate(0,-6);translate(0,0)" dur="4s" repeatCount="indefinite"/>
+          <path d="M45 100 Q30 180 35 260 L165 260 Q170 180 155 100 Z" fill="url(#hair)"/>
+          <path d="M50 260 Q50 170 100 170 Q150 170 150 260 Z" fill="url(#shirt)"/>
+          <rect x="92" y="120" width="16" height="60" fill="url(#skin)"/>
+          <ellipse cx="100" cy="100" rx="36" ry="42" fill="url(#skin)"/>
+          
+          <path d="M62 95 Q60 50 100 45 Q140 50 138 95 Q145 60 100 35 Q55 60 62 95 Z" fill="url(#hair)"/>
+          <path d="M64 95 Q80 60 100 65 Q120 60 136 95 Q125 70 100 75 Q75 70 64 95 Z" fill="#3D2620"/>
+          <path d="M62 90 Q50 150 55 200 Q65 150 70 95 Z" fill="url(#hair)"/>
+          <path d="M138 90 Q150 150 145 200 Q135 150 130 95 Z" fill="url(#hair)"/>
+
+          <path d="M78 102 Q84 107 90 102" stroke="#4A2F29" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M110 102 Q116 107 122 102" stroke="#4A2F29" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M78 102 L75 105" stroke="#4A2F29" stroke-width="2" stroke-linecap="round"/>
+          <path d="M90 102 L93 105" stroke="#4A2F29" stroke-width="2" stroke-linecap="round"/>
+          <path d="M110 102 L107 105" stroke="#4A2F29" stroke-width="2" stroke-linecap="round"/>
+          <path d="M122 102 L125 105" stroke="#4A2F29" stroke-width="2" stroke-linecap="round"/>
+
+          <ellipse cx="74" cy="112" rx="6" ry="4" fill="#FF8A8A" opacity="0.4"/>
+          <ellipse cx="126" cy="112" rx="6" ry="4" fill="#FF8A8A" opacity="0.4"/>
+          <path d="M98 114 Q100 118 102 114" stroke="#D19382" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M94 124 Q100 128 106 124" stroke="#C46B6B" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+          <path d="M50 190 Q40 230 65 240 L70 230 Q55 220 60 190 Z" fill="url(#skin)"/>
+          <path d="M150 190 Q160 230 135 240 L130 230 Q145 220 140 190 Z" fill="url(#skin)"/>
+
+          <polygon points="30,240 170,240 180,260 20,260" fill="#2D2D3A"/>
+          <polygon points="40,235 160,235 170,240 30,240" fill="#1A1A24"/>
+          <polygon points="45,237 155,237 160,240 40,240" fill="#4F46E5" opacity="0.5"/>
+
+          <animate attributeName="transform" values="translate(0,0);translate(0,-5);translate(0,0)" dur="4s" repeatCount="indefinite"/>
         </svg>
       </div>
     </div>
@@ -754,14 +657,6 @@
     <h2 class="section-title fade-up">A girl who codes<br>and designs.</h2>
 
     <div class="about-grid">
-      <div class="about-img-wrap fade-up">
-        <div class="about-img-box">
-          <img src="https://media.licdn.com/dms/image/v2/D4D03AQECBn3HBbNVaA/profile-displayphoto-crop_800_800/B4DZqTDfkHJEAI-/0/1763403760532?e=1773273600&v=beta&t=OT8i8u-2Y496_Ts6ZOZqwZdyiBXqET6KyLoWSUggKww" alt="Nishi Patidar" onerror="this.style.display='none'"/>
-        </div>
-        <div class="about-deco"></div>
-        <div class="about-deco2"></div>
-      </div>
-
       <div class="about-text fade-up">
         <p>I'm a <strong>Computer Science student at AITR</strong> with a deep passion for bridging the gap between complex engineering and intuitive design. I don't just write code — I build digital experiences that solve real-world problems.</p>
         <p>Currently exploring the intersection of <strong>AI and Frontend Development</strong>, always looking for the next challenge that pushes me to grow. I believe the best products happen when logic meets empathy.</p>
@@ -885,98 +780,98 @@
     <div class="skills-grid fade-up">
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#00599C" d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.9-.1-1.9-.4-2.6zM64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c6.2 0 11.8 2.3 16.1 6.1l-7.8 7.8c-2.2-2.1-5.2-3.4-8.3-3.4-6.9 0-12.5 5.6-12.5 12.5s5.6 12.5 12.5 12.5c5.7 0 10.5-3.8 12-9H64V54.5h23.5c.3 1.5.5 3.1.5 4.7 0 13.5-11 24.3-24 29.3z"/></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" class="skill-svg">
         </span>
         <span class="skill-name">C</span>
       </div>
 
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#9C033A" d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.9-.1-1.9-.4-2.6zM64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c6.2 0 11.8 2.3 16.1 6.1l-7.8 7.8c-2.2-2.1-5.2-3.4-8.3-3.4-6.9 0-12.5 5.6-12.5 12.5s5.6 12.5 12.5 12.5c5.7 0 10.5-3.8 12-9H64V54.5h23.5c.3 1.5.5 3.1.5 4.7 0 13.5-11 24.3-24 29.3zm39-12.5h-4v4h-4v-4h-4v-4h4v-4h4v4h4v4zm17 0h-4v4h-4v-4h-4v-4h4v-4h4v4h4v4z"/></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" class="skill-svg">
         </span>
         <span class="skill-name">C++</span>
       </div>
 
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#f89820" d="M84.7 75.3c-7.9 4-20 6.6-32.9 6.6-14.7 0-27.1-2.6-34-6.6-1.5-.9-1.9-2.8-.7-4.1 1.2-1.3 3.3-1.4 4.8-.6 6.3 3.3 17.5 5.7 30 5.7 11.2 0 21.6-2.1 27.5-5 1.4-.7 3.1-.1 4 1.3.8 1.4.1 3-1.6 3.9z"/><path fill="#5382a1" d="M88.7 89.2c-5.7 3-17.7 5.7-32.8 5.7-17 0-30.8-3.1-37.4-6.6-1.5-.8-1.9-2.7-.9-4.1 1.1-1.3 3.1-1.5 4.7-.7 5.8 3.1 18.5 5.8 33.5 5.8 13.9 0 25.1-2.4 30.6-5 1.4-.6 3.1 0 3.8 1.4.6 1.3-.1 2.9-1.5 3.5zm27.8 13.8c-1.3 1.1-4 1.6-7.8 1.4-1.2-.1-2.1-1.1-2-2.3.1-1.2 1.2-2 2.4-1.9 2.5.1 4 .1 4.7-.5 1-1-1.7-2.6-6-4.6-9.1-4.2-25.5-6.8-44.5-6.8-19.4 0-36.6 2.7-46 7.1-4.2 2-7.1 3.5-6.2 4.4.7.7 2.3.6 4.9.4 1.2-.1 2.3.8 2.4 2 .1 1.2-.8 2.2-2 2.3-3.8.3-6.5-.2-7.8-1.4-2.8-2.6 1.4-6 10.9-10.4 10.2-4.8 28.5-7.7 49-7.7 20 0 37.9 2.8 47.9 7.4 9.1 4.2 13 7.8 10.1 10.4zM73 40.7c2.6 7.3-1.3 16.7-7.7 21.6-1 .8-2.6.6-3.4-.4-.8-1-.6-2.5.4-3.3 5.3-4.1 8.3-11.8 6.4-17.6-1.1-3.2-3.8-5.3-6.5-6.9-2.8-1.7-5.5-3-6.5-6.4-1.2-3.8.7-9.5 4.6-13.6 1.1-1.1 2.8-1.1 3.9 0 1.1 1.1 1 2.8-.1 3.8-2.9 3.1-4 6.7-3.3 8.8.6 1.9 2.7 3.2 5.5 4.9 2.9 1.8 5.7 3.9 6.7 9.1zm-15.6 19.3c-1.5.7-3.3.1-4-1.4-2.1-4.7-2-10 .6-14 1.5-2.2 4.1-3.4 5.9-4.3.7-.4 1.3-.7 1.8-1 2.2-1.3 3.7-2.9 4.3-5 1.1-3.6-.8-8.9-4.3-13.3-1-1.2-2.7-1.4-3.9-.3-1.2 1-1.3 2.8-.3 3.9 2.7 3.3 4 7 3.3 9.3-.4 1.3-1.6 2.4-3.5 3.6-.5.3-1 .6-1.7 1-2.1.9-5.1 2.4-7 5.2-3.2 4.9-3.2 11.5-.5 17.5.7 1.5.1 3.4-1.3 4l-1.3-.3zm-14.7-6.2c-1.1 1-2.9.8-3.8-.4-4-5-3.8-11.2-.3-15.7 1.5-1.9 4.1-3.1 5.9-3.9.7-.3 1.3-.6 1.8-.9 1.4-.8 2.3-1.8 2.6-3 .6-2.1-.6-5.4-2.7-8-1-1.2-2.6-1.4-3.8-.4-1.2 1-1.4 2.7-.4 3.9 1.5 1.9 2.2 4 1.8 5.3-.2.6-.8 1.2-1.9 1.8-.5.3-1 .6-1.7.9-2.1.9-5.2 2.4-7 4.8-4.3 5.4-4.5 13-.3 18.2.9 1.2 2.7 1.3 3.8.3 1.1-1 1.2-2.7.3-3.8-2.6-3.2-2.5-8.4.3-11.9 1.6-1.9 4.1-3.2 5.9-4 .7-.3 1.3-.6 1.8-.9 1.4-.8 2.2-1.8 2.5-2.9.3-.9.1-2-.6-3.2-1.2 1.3-1.5 2.6-1.1 3.7.2.7.8 1.3 1.9 2 .5.3 1 .6 1.7.9 2 1 5.1 2.5 6.9 4.8 2.8 3.5 2.6 8.2-.1 11.7z"/></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" class="skill-svg">
         </span>
         <span class="skill-name">Java</span>
       </div>
 
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><linearGradient id="pyBlue" x1="70.252" y1="1237.476" x2="170.659" y2="1151.089" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stop-color="#5A9FD4"/><stop offset="1" stop-color="#306998"/></linearGradient><linearGradient id="pyYellow" x1="209.474" y1="1098.811" x2="173.62" y2="1149.537" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stop-color="#FFD43B"/><stop offset="1" stop-color="#FFE873"/></linearGradient><path fill="url(#pyBlue)" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"/><path fill="url(#pyYellow)" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"/></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="skill-svg">
         </span>
         <span class="skill-name">Python</span>
       </div>
 
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><path d="M107.3 45.2c-2.2-.8-4.5-1.6-6.9-2.3.6-2.4 1.1-4.8 1.5-7.1 2.1-13-1.2-21.8-9.6-26.6-8.2-4.7-19.5-1-31.2 10.7-4.4-4.3-9-7.7-13.5-10.1C38.5-.1 28.2-1.2 20.7 3.1 13.4 7.5 10 17.8 11.8 32.4c.3 2.5.9 5.1 1.6 7.7C10.9 41.1 8.5 42 6.3 43c-12 5.4-18.7 13.4-18.7 22.5s6.7 17 18.5 22.5c2.5 1.1 5.1 2.1 7.9 2.9-.6 2.6-1.1 5.2-1.4 7.7-1.8 14.7 1.5 24.9 8.8 29.3 3.3 2 7.1 2.9 11.5 2.9 7.2 0 15.7-2.9 24.4-8.8 4.5 4.4 9 7.8 13.5 10.1 8.1 4.6 18.4 5.6 25.9 1.4 7.3-4.4 10.7-14.7 8.9-29.4-.3-2.5-.9-5.1-1.6-7.8 2.5-.8 4.9-1.7 7.2-2.6 12-5.4 18.7-13.4 18.7-22.5s-6.8-17.1-18.8-22.5zM96.1 16.2c5 2.9 7.1 9.5 5.5 20.4-.3 2.1-.8 4.3-1.4 6.6-5.3-1.2-11-2.1-17.1-2.6-.7-1.1-1.4-2.1-2.1-3.1-1.8-2.6-3.7-5.2-5.6-7.7 4.3-4.5 8.5-7.8 12.1-9.4 2.1-.9 3.9-1.3 5.4-1.3 1 0 1.9.2 2.7.7l.5.3zm-49.4 2.3c3.5 1.6 7.7 4.8 12 9.3-2 2.6-3.9 5.2-5.6 7.8-.8 1.1-1.5 2.2-2.3 3.3-6.1.5-11.8 1.5-17.1 2.8-.6-2.3-1.1-4.5-1.4-6.7C31.1 25.9 33.1 19.3 38 16.3c2.7-1.6 6-1.7 8.7-.5v.7zm-12.4 64.4c-1.4-2.4-2.7-4.9-3.9-7.4 1.2-2.5 2.5-5 3.9-7.5 1.3-2.4 2.7-4.8 4.2-7.1.5 2.9.8 5.9.9 9 0 3-.2 6-.7 8.9-1.4-2.3-2.8-4.6-4.4-6.8zm3.1 19.7c-4.9-2.9-7.1-9.5-5.5-20.4.3-2 .8-4.2 1.4-6.4 5.3 1.2 11 2.1 17.1 2.6.7 1.1 1.4 2.1 2.1 3.1 1.8 2.6 3.7 5.2 5.6 7.7-4.3 4.5-8.5 7.8-12.1 9.4-2.1.9-3.9 1.3-5.4 1.3-1.2-.1-2.1-.3-3.2-.9v-.4zm34.4 8.2c-3.5-1.6-7.7-4.8-12-9.3 2-2.6 3.9-5.2 5.6-7.8.8-1.1 1.5-2.2 2.3-3.3 6.1-.5 11.8-1.5 17.1-2.8.6 2.3 1.1 4.5 1.4 6.7 1.7 11-1.4 17.6-6.3 20.6-1.3.8-2.7 1.1-4.2 1.1-1 0-1.9-.2-3.9-5.2zm10.8-16.7l-1 .1c-.6-1.1-1.2-2.2-1.9-3.3-1.8-2.6-3.7-5.2-5.6-7.7 4.3-4.5 8.5-7.8 12.1-9.4 2.1-.9 3.9-1.3 5.4-1.3.9 0 1.8.2 2.7.6l.5.3c5 2.9 7.1 9.5 5.5 20.4-.3 2.1-.8 4.3-1.4 6.6-2.1-.5-4.3-1-6.8-1.3 1.5-3 2.7-6.1 3.5-9.2-.6 2.3-1.2 4.5-1.9 6.7-.9-.1-1.7-.2-2.6-.3 1.3-2.7 2.4-5.5 3.2-8.4-.1 2.8-.4 5.6-.9 8.4zm-4.7-19.4c2.1 2.8 4 5.7 5.8 8.7H64c0-3-.2-6-.7-8.9 0-.3-.1-.7-.1-1 .7-1.1 1.5-2.2 2.2-3.3 2.1-2.9 4.2-5.7 6.5-8.4zm-17.6 19.2c2.7 0 5.5-.1 8.2-.3-1.3 2.3-2.7 4.5-4.2 6.6-1.5-2.1-2.9-4.3-4-6.3zm-8.2-35.4c1.1 2 2.5 4.3 4 6.4-1.5 2.1-2.9 4.3-4.2 6.6-2.7-.3-5.4-.5-8-.8 1.3-4.3 3-8.3 5.1-12.2 1 0 2 0 3.1 0zm7.4-4.1c2.7.3 5.4.6 8.1 1.1 1.4 2.4 2.7 4.9 3.9 7.5-1.2 2.5-2.5 5-3.9 7.5-2.7.4-5.5.7-8.2.7-2.7 0-5.5-.3-8.2-.7-1.4-2.5-2.7-5-3.9-7.5 1.2-2.5 2.5-5 3.9-7.5 2.7-.4 5.5-.7 8.2-.7l.1-.4zm-8 22.5c1.1 2 2.5 4.2 4 6.3-1.5-2.1-2.9-4.3-4-6.3zm36.2-13.3c-1.1-2-2.5-4.3-4-6.4 1.5-2.1 2.9-4.3 4.2-6.6 2.7.3 5.4.5 8 .8-1.3 4.3-3 8.3-5.1 12.2-1.1 0-2.1 0-3.1 0zM64 42.7c-1.2 1.6-2.3 3.2-3.4 4.8 1.1-1.6 2.2-3.2 3.4-4.8zm0 42.7c1.2-1.6 2.3-3.2 3.4-4.8-1.1 1.6-2.2 3.2-3.4 4.8z"/></g></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React.js" class="skill-svg">
         </span>
         <span class="skill-name">React.js</span>
       </div>
 
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#007ACC" d="M2 63.91v62.5h125v-125H2zm100.73-5a15.56 15.56 0 017.82 4.5 20.58 20.58 0 013 4c0 .16-5.4 3.81-8.69 5.85-.12.08-.6-.44-1.13-1.23a7.09 7.09 0 00-5.87-3.53c-3.79-.26-6.23 1.73-6.21 5a4.58 4.58 0 00.54 2.34c.83 1.73 2.38 2.76 7.24 4.86 8.95 3.85 12.78 6.39 15.16 10 2.66 4 3.25 10.46 1.45 15.24-2 5.2-6.9 8.73-13.83 9.9a38.32 38.32 0 01-9.52-.1 23 23 0 01-12.72-6.63c-1.15-1.27-3.39-4.58-3.25-4.82a9.34 9.34 0 011.15-.73l4.6-2.64 3.59-2.08.75 1.11a16.78 16.78 0 004.24 4.19 13.38 13.38 0 007.51 1.73c6.23-.41 10.22-3.19 10.38-7.32a5 5 0 00-.57-2.84c-.83-1.68-2.46-2.79-7.08-4.82-5.33-2.3-8.38-3.93-11.19-6.29a17.08 17.08 0 01-4.69-6.93 16 16 0 01-.12-6.38c1.39-6.67 6.29-11.45 13.41-13a31 31 0 018-.28zm-31.52 4.84l.06 5h-16v45.43H45.55V68.86H29.7v-4.84c0-2.68.06-4.9.13-4.94.08 0 9.64-.06 21.31-.08l21.17-.05z"/></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" class="skill-svg">
         </span>
         <span class="skill-name">TypeScript</span>
       </div>
 
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><path d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.597-6.399 8.531-13.867 11.73-22.399 9.597-4.87-1.214-8.347-4.745-12.207-8.66C55.128 71.371 47.868 64 32.004 64zm0 0" fill="#38BDF8"/></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="skill-svg">
         </span>
         <span class="skill-name">Tailwind CSS</span>
       </div>
 
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"/><path fill="#F16529" d="M64 116.8l36.378-10.086 8.559-95.878H64z"/><path fill="#EBEBEB" d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"/><path fill="#fff" d="M63.966 52.455v13.763h16.996l-1.6 17.914-15.396 4.143v14.319l28.212-7.82.207-2.325 3.234-36.233.335-3.761zm0-27.856v13.762h33.253l.276-3.092.628-6.978.329-3.692z"/></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="skill-svg">
         </span>
         <span class="skill-name">HTML/CSS</span>
       </div>
 
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#83CD29" d="M112.771 30.334L68.674 4.729c-2.781-1.584-6.402-1.584-9.455 0L14.901 30.334C12.031 31.985 10 35.088 10 38.407v51.142c0 3.319 2.084 6.423 4.954 8.083l11.775 6.688c5.628 2.772 7.617 2.772 10.178 2.772 8.333 0 13.093-5.039 13.093-13.828v-50.49c0-.713-.371-1.774-1.071-1.774h-5.623C42.594 41 42 42.061 42 42.773v50.49c0 3.896-3.524 7.773-10.11 4.48L20.555 90.72c-.334-.378-.555-.461-.555-1.171V38.407c0-.71.377-1.222.76-1.396l44.133-25.604c.385-.249.893-.249 1.209 0l44.129 25.604c.386.274.763.786.763 1.396v51.142c0 .71-.249 1.093-.614 1.271L66.076 116.47c-.293.166-.638.166-.918-.044l-11.615-6.735c-.31-.183-.747-.244-1.052-.086-3.452 1.942-4.093 2.183-7.427 3.316-.814.293-2.065.7.452 2.15l15.225 8.678c1.359.775 2.85 1.259 4.418 1.259 1.569 0 3.059-.484 4.418-1.259l44.047-25.604c2.87-1.661 4.953-4.764 4.953-8.083V38.407c0-3.319-2.084-6.422-4.806-8.073zM77.369 87.218c-11.854 0-14.335-3.43-15.159-10.235-.105-.628-.628-1.094-1.256-1.094h-5.16c-.71 0-1.27.593-1.27 1.304 0 7.992 4.35 17.986 22.845 17.986 13.659 0 21.494-5.537 21.494-15.229 0-9.745-6.571-12.321-20.372-14.136-13.953-1.843-15.384-2.754-15.384-5.983 0-2.669 1.115-6.229 10.503-6.229 8.437 0 11.56 1.819 12.834 7.512.105.628.634 1.094 1.298 1.094h5.144a1.27 1.27 0 00.901-.374 1.27 1.27 0 00.368-.93c-.826-9.91-7.396-14.528-20.545-14.528-11.734 0-18.741 4.985-18.741 13.331 0 9.745 7.512 12.445 19.854 13.665 14.722 1.464 15.902 3.659 15.902 6.302 0 4.883-3.897 6.944-13.051 6.944z"/></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js" class="skill-svg">
         </span>
         <span class="skill-name">Node.js</span>
       </div>
 
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="var(--text)" d="M64 10.4C34.4 10.4 10.4 34.4 10.4 64S34.4 117.6 64 117.6 117.6 93.6 117.6 64 93.6 10.4 64 10.4zm0 102.4C37 112.8 15.2 91 15.2 64S37 15.2 64 15.2 112.8 37 112.8 64 91 112.8 64 112.8zm17.6-54.3c-2.4 0-4.3 1.9-4.3 4.3v13.6c0 1.2-.5 2.3-1.4 3.1-.9.8-2 1.2-3.1 1.2h-2v-34h-4.8v34.4c0 2.4.9 4.7 2.6 6.3 1.7 1.7 3.9 2.6 6.3 2.6h2c2.4 0 4.7-.9 6.3-2.6 1.7-1.7 2.6-3.9 2.6-6.3v-18.3c0-2.4-1.9-4.3-4.2-4.3zm-39.7.3c-.6-.6-1.4-.9-2.3-.9h-8.8v22h4.8v-8.4h4.1c1.3 0 2.5-.5 3.4-1.4.9-.9 1.4-2.1 1.4-3.4v-4.5c0-1.3-.5-2.5-1.4-3.4zm-2 7.7c0 .2-.1.4-.2.5-.1.1-.3.2-.5.2h-3.9v-4.3h3.9c.2 0 .4.1.5.2.1.1.2.3.2.5v2.9zm13.1-8h-4.8v22h12.5v-4.3H48.2v-4.8h6.4v-4.3h-6.4v-4.3h7v-4.3h-2.2z"/></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" alt="Express.js" class="skill-svg invert-icon">
         </span>
         <span class="skill-name">Express.js</span>
       </div>
 
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#439934" d="M88.038 42.929C84.605 23.016 74.9 9.836 67.442 3.814a2.87 2.87 0 00-4.108.378c-.217.28-.378.698-.378 1.088v.234c.018 1.978.018 3.956-.504 5.888-1.296 4.758-4.398 8.444-7.644 11.944-11.538 12.42-17.83 26.532-17.154 42.228.018.504.036 1.008.072 1.512.18 2.466.396 4.968.864 7.38.756 4.05 1.98 7.83 3.708 11.43a47.64 47.64 0 009.684 14.112c5.508 5.688 11.772 9.594 18.162 11.736.18.054.342.108.54.162.18-.054.342-.108.54-.162 6.39-2.142 12.654-6.048 18.162-11.736a47.64 47.64 0 009.684-14.112c1.728-3.6 2.952-7.38 3.708-11.43.468-2.412.684-4.914.864-7.38.036-.504.054-1.008.072-1.512.324-9.288-1.602-18.378-7.722-26.226z"/><path fill="#00684A" d="M64.422 96.012c.054.756.108 1.476.144 2.178.108 1.584.162 3.024.18 4.32v.234c0 .378-.054.738-.162 1.062l.162.072.162-.072c-.108-.324-.162-.684-.162-1.062v-.234c.018-1.296.072-2.736.18-4.32.036-.702.09-1.422.144-2.178-.144-1.44-.252-2.88-.342-4.32a64.5 64.5 0 00-.162 4.32zm.162 7.758c.09.198.198.396.306.576l-.306-.576zm-3.618-47.628L61.992 83.1l-.342 7.686c.072.576.144 1.152.198 1.764.108 1.188.198 2.412.288 3.636.09 1.44.162 2.898.234 4.356l-.162 1.044v.072c-.018.468-.054.918-.09 1.368.09 1.134.234 2.268.378 3.42.144-1.152.288-2.286.378-3.42-.036-.45-.072-.9-.09-1.368v-.072l-.162-1.044c.072-1.458.144-2.916.234-4.356.09-1.224.18-2.448.288-3.636.054-.612.126-1.188.198-1.764l-.342-7.686.036-26.958a.626.626 0 00-.054-.252.748.748 0 00-.054.252zm4.23 57.618l-.306.576a4.7 4.7 0 00.306-.576z"/></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="skill-svg">
         </span>
         <span class="skill-name">MongoDB</span>
       </div>
 
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#00758F" d="M64 4c-33.1 0-60 26.9-60 60s26.9 60 60 60 60-26.9 60-60S97.1 4 64 4zM47.7 89.1c-1.3 2.1-3 3.6-5.4 4.4-2.4.7-4.6.4-6.8-1-2.1-1.3-3.6-3.1-4.3-5.5-.7-2.4-.4-4.7 1-6.8 1.3-2.1 3-3.7 5.5-4.4 2.4-.7 4.7-.4 6.8 1 2.2 1.2 3.7 3 4.4 5.5.7 2.4.4 4.7-1.2 6.8zm41 12.3c-2.4.7-4.7.4-6.8-1-2.2-1.3-3.6-3.1-4.4-5.5-.7-2.4-.4-4.7 1-6.8 1.3-2.1 3.1-3.6 5.5-4.4 2.4-.7 4.7-.4 6.8 1 2.2 1.3 3.6 3.1 4.4 5.5.7 2.4.4 4.7-1 6.8-1.4 2.1-3.2 3.6-5.5 4.4z"/><path fill="#F29111" d="M65.7 34.6c1.3 0 2.5.5 3.4 1.4 1 1 1.4 2.2 1.4 3.5 0 1.3-.5 2.5-1.4 3.4-1 1-2.2 1.4-3.4 1.4s-2.5-.5-3.4-1.4c-1-1-1.4-2.2-1.4-3.5 0-1.3.5-2.5 1.4-3.4.9-.9 2.1-1.4 3.4-1.4z"/></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" class="skill-svg">
         </span>
         <span class="skill-name">MySQL</span>
       </div>
 
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#F34F29" d="M124.742 58.378L69.625 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.685 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314 2.703 2.706 3.462 6.607 2.293 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295 3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 01-13.683 0 9.677 9.677 0 01-2.105-10.521L68.574 47.933l-.002 34.341a9.708 9.708 0 012.559 1.828c3.778 3.777 3.778 9.898 0 13.683-3.779 3.777-9.904 3.777-13.679 0-3.778-3.785-3.778-9.906 0-13.683a9.65 9.65 0 013.167-2.11V47.333a9.581 9.581 0 01-3.167-2.105c-2.726-2.728-3.462-6.732-2.219-10.138L41.115 20.605 3.256 58.488c-3.174 3.172-3.174 8.32 0 11.497l55.117 55.117c3.174 3.174 8.32 3.174 11.499 0l54.869-54.869c3.178-3.175 3.178-8.322.001-11.855z"/></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" class="skill-svg">
         </span>
         <span class="skill-name">Git/GitHub</span>
       </div>
 
       <div class="skill-item">
         <span class="skill-logo">
-          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="var(--text)" d="M64 12L12 101h104L64 12z"/></svg>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg" alt="Vercel" class="skill-svg invert-icon">
         </span>
         <span class="skill-name">Vercel</span>
       </div>
@@ -1138,6 +1033,29 @@
       a.style.color = a.getAttribute('href') === '#' + curr ? 'var(--text)' : '';
     });
   });
+
+  const titles = ['Developer', 'Designer', 'Coder', 'Creator'];
+  let ti = 0, ci = 0, del = false;
+  const tEl = document.querySelector('.float-tag.t1');
+  if (tEl) {
+    const icon = tEl.querySelector('.tag-icon');
+    setInterval(() => {
+      const word = titles[ti];
+      if (!del) {
+        ci++;
+        tEl.innerHTML = '';
+        tEl.appendChild(icon);
+        tEl.append(' ' + word.slice(0, ci));
+        if (ci === word.length) { del = true; setTimeout(() => {}, 1200); }
+      } else {
+        ci--;
+        tEl.innerHTML = '';
+        tEl.appendChild(icon);
+        tEl.append(' ' + word.slice(0, ci));
+        if (ci === 0) { del = false; ti = (ti + 1) % titles.length; }
+      }
+    }, 120);
+  }
 </script>
 </body>
 </html>
