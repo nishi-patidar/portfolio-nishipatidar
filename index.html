@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nishi Patidar — Designer & Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --bg3: #18181f;
+    --card: #1c1c24;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --text: #f0eef8;
+    --muted: #8e8aab;
+    --accent: #c084fc;
+    --accent2: #818cf8;
+    --accent3: #38bdf8;
+    --pink: #f472b6;
+    --glow: rgba(192,132,252,0.18);
+    --sans: 'DM Sans', sans-serif;
+    --serif: 'DM Serif Display', serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 999;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    height: 64px;
+    transition: background 0.3s;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #0a0a0f !important;
+    padding: 0.45rem 1.2rem;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    font-size: 0.82rem !important;
+    transition: opacity 0.2s !important;
+  }
+  .nav-cta:hover { opacity: 0.85; color: #0a0a0f !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 5vw 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+  }
+  .orb1 { width: 500px; height: 500px; background: rgba(192,132,252,0.12); top: -100px; right: -80px; }
+  .orb2 { width: 400px; height: 400px; background: rgba(129,140,248,0.1); bottom: 0; left: -100px; }
+  .orb3 { width: 300px; height: 300px; background: rgba(56,189,248,0.08); top: 40%; right: 10%; }
+
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-text { flex: 1; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(192,132,252,0.12);
+    border: 1px solid rgba(192,132,252,0.3);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .badge-dot {
+    width: 7px; height: 7px;
+    background: #4ade80;
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+  }
+  @keyframes pulse-dot {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.7); }
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.4rem;
+  }
+  .hero-title .line2 {
+    background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 2.2rem;
+    font-weight: 300;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 500; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #0a0a0f;
+    padding: 0.72rem 1.8rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(192,132,252,0.4); }
+  .btn-outline {
+    border: 1px solid var(--border2);
+    color: var(--text);
+    padding: 0.72rem 1.8rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.92rem;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover { border-color: var(--accent); background: rgba(192,132,252,0.08); }
+
+  /* ── AVATAR SCENE ── */
+  .hero-avatar-wrap {
+    flex-shrink: 0;
+    width: 340px;
+    height: 420px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .avatar-glow {
+    position: absolute;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(192,132,252,0.25) 0%, transparent 70%);
+    animation: breathe 4s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%,100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.12); opacity: 1; }
+  }
+  .avatar-svg-wrap {
+    position: relative;
+    z-index: 2;
+  }
+  /* Floating tag bubbles */
+  .float-tag {
+    position: absolute;
+    background: var(--card);
+    border: 1px solid var(--border2);
+    border-radius: 100px;
+    padding: 7px 16px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+    display: flex; align-items: center; gap: 8px;
+    color: var(--text);
+    z-index: 3;
+    animation: floatTag 3s ease-in-out infinite;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+  .float-tag:nth-child(2) { animation-delay: -0.8s; }
+  .float-tag:nth-child(3) { animation-delay: -1.6s; }
+  .float-tag:nth-child(4) { animation-delay: -2.4s; }
+  .float-tag:nth-child(5) { animation-delay: -0.4s; }
+  @keyframes floatTag {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+  }
+  .tag-icon { font-size: 1rem; }
+  .t1 { top: 12px; left: -30px; }
+  .t2 { top: 80px; right: -40px; border-color: rgba(192,132,252,0.3); color: var(--accent); }
+  .t3 { bottom: 100px; left: -40px; border-color: rgba(56,189,248,0.3); color: var(--accent3); }
+  .t4 { bottom: 30px; right: -20px; border-color: rgba(244,114,182,0.3); color: var(--pink); }
+  .t5 { top: 160px; left: -60px; border-color: rgba(129,140,248,0.3); color: var(--accent2); }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 100px 5vw; }
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 520px;
+    font-weight: 300;
+  }
+  .max-w { max-width: 1100px; margin: 0 auto; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--bg2); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+  }
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img-box {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(192,132,252,0.15), rgba(56,189,248,0.1));
+    border: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .about-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .about-deco {
+    position: absolute;
+    width: 100px; height: 100px;
+    border: 1px solid rgba(192,132,252,0.3);
+    border-radius: 16px;
+    bottom: -20px;
+    right: -20px;
+    transform: rotate(12deg);
+  }
+  .about-deco2 {
+    position: absolute;
+    width: 60px; height: 60px;
+    background: rgba(192,132,252,0.1);
+    border-radius: 50%;
+    top: -16px;
+    left: -16px;
+  }
+  .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: 1.02rem; font-weight: 300; }
+  .about-text p strong { color: var(--text); font-weight: 500; }
+  .about-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.6rem; }
+  .chip {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+  .stat-box {
+    background: var(--card);
+    padding: 1.4rem 1.2rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--bg); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 60px;
+  }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+  }
+  .project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border2);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .project-thumb {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-thumb-icon { position: relative; z-index: 1; }
+  .project-thumb-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    background-size: 20px 20px;
+    background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+  }
+  .project-body { padding: 1.4rem; }
+  .project-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .project-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+  .project-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+  .project-footer {
+    padding: 1rem 1.4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .project-links { display: flex; gap: 0.6rem; }
+  .project-link {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .project-link:hover { color: var(--accent); }
+  .p-arrow { font-size: 0.7rem; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--bg2); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-top: 60px;
+  }
+  .skill-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.2rem 0.8rem;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s, background 0.2s;
+    cursor: default;
+  }
+  .skill-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--border2);
+    background: var(--bg3);
+  }
+  .skill-logo { display: flex; align-items: center; justify-content: center; margin-bottom: 0.7rem; height: 40px; }
+  .skill-logo svg, .skill-logo img { width: 38px; height: 38px; object-fit: contain; }
+  .skill-svg { width: 38px; height: 38px; }
+  .skill-name { font-size: 0.72rem; font-weight: 500; color: var(--muted); line-height: 1.3; }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--bg); }
+  .timeline {
+    position: relative;
+    margin-top: 60px;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 32px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 6px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 16px var(--accent);
+  }
+  .exp-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .exp-role { font-size: 1.05rem; font-weight: 600; color: var(--text); }
+  .exp-company { color: var(--accent); font-size: 0.9rem; font-weight: 500; }
+  .exp-date {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 3px 12px;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .exp-type {
+    background: rgba(192,132,252,0.1);
+    border: 1px solid rgba(192,132,252,0.25);
+    border-radius: 100px;
+    padding: 3px 12px;
+    font-size: 0.75rem;
+    color: var(--accent);
+  }
+  .exp-desc { color: var(--muted); font-size: 0.92rem; max-width: 600px; }
+
+  /* ── RESUME ── */
+  #resume { background: var(--bg2); }
+  .resume-card {
+    background: var(--card);
+    border: 1px solid var(--border2);
+    border-radius: 24px;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 60px auto 0;
+    flex-wrap: wrap;
+  }
+  .resume-text h3 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 0.5rem; }
+  .resume-text p { color: var(--muted); font-size: 0.95rem; max-width: 380px; }
+  .resume-btn {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #0a0a0f;
+    padding: 0.9rem 2.2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; align-items: center; gap: 10px;
+    flex-shrink: 0;
+  }
+  .resume-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(192,132,252,0.4); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--bg); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 60px;
+    align-items: start;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.6rem; }
+  .contact-link {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.2rem 1.4rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: border-color 0.2s, transform 0.2s;
+    color: var(--text);
+  }
+  .contact-link:hover { border-color: var(--accent); transform: translateX(4px); }
+  .contact-link-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .lk-li .contact-link-icon { background: rgba(10,102,194,0.2); }
+  .lk-gh .contact-link-icon { background: rgba(255,255,255,0.06); }
+  .lk-em .contact-link-icon { background: rgba(192,132,252,0.15); }
+  .contact-link-text span { display: block; }
+  .contact-link-label { font-size: 0.75rem; color: var(--muted); font-weight: 500; }
+  .contact-link-value { font-size: 0.92rem; font-weight: 500; }
+  .contact-form-area h3 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 1.4rem; }
+  .form-row { margin-bottom: 1rem; }
+  .form-row label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
+  .form-row input, .form-row textarea {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.7rem 1rem;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+  .form-row input:focus, .form-row textarea:focus { border-color: var(--accent); }
+  .form-row textarea { min-height: 120px; }
+  .form-submit {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #0a0a0f;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 0.6rem;
+    width: 100%;
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(192,132,252,0.35); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 2rem 5vw;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+  footer span { color: var(--accent); }
+
+  /* ── ANIMATIONS ── */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { flex-direction: column-reverse; gap: 40px; text-align: center; }
+    .hero-actions { justify-content: center; }
+    .hero-sub { margin: 0 auto 2.2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-img-box { max-width: 320px; margin: 0 auto; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .hero-avatar-wrap { width: 280px; height: 340px; }
+    .nav-links { display: none; }
+    .resume-card { flex-direction: column; text-align: center; }
+  }
+
+  /* ── SKILL SVG LOGOS ── */
+  .skill-svg { width: 36px; height: 36px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Nishi<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact" class="nav-cta">Say Hello</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-orb orb1"></div>
+  <div class="hero-bg-orb orb2"></div>
+  <div class="hero-bg-orb orb3"></div>
+  <div class="hero-inner max-w">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <div class="badge-dot"></div>
+        Open to opportunities
+      </div>
+      <h1 class="hero-title">
+        Designing<br>
+        <span class="line2">Digital Magic</span>
+      </h1>
+      <p class="hero-sub">
+        I'm <strong>Nishi Patidar</strong> — a CS student at AITR who bridges <strong>engineering and design</strong> to craft experiences that feel effortless and solve real problems.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View My Work →</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- 3D Avatar Scene -->
+    <div class="hero-avatar-wrap">
+      <!-- Floating tags -->
+      <div class="float-tag t1">
+        <span class="tag-icon">⚡</span> Developer
+      </div>
+      <div class="float-tag t2">
+        <span class="tag-icon">🎨</span> UI/UX Designer
+      </div>
+      <div class="float-tag t3">
+        <span class="tag-icon">💻</span> Coder
+      </div>
+      <div class="float-tag t4">
+        <span class="tag-icon">✨</span> Creator
+      </div>
+      <div class="float-tag t5">
+        <span class="tag-icon">🚀</span> CS Student
+      </div>
+
+      <div class="avatar-glow"></div>
+
+      <!-- Animated Girl Avatar (SVG) -->
+      <div class="avatar-svg-wrap">
+        <svg width="200" height="280" viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="skinGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#f5c5a3"/>
+              <stop offset="100%" stop-color="#e8a882"/>
+            </radialGradient>
+            <radialGradient id="hairGrad" cx="50%" cy="30%" r="60%">
+              <stop offset="0%" stop-color="#3a1f0a"/>
+              <stop offset="100%" stop-color="#1a0c04"/>
+            </radialGradient>
+            <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="100%" stop-color="#4f46e5"/>
+            </linearGradient>
+            <linearGradient id="glassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#818cf8" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#c084fc" stop-opacity="0.2"/>
+            </linearGradient>
+            <filter id="softShadow">
+              <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.3"/>
+            </filter>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="4" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+
+          <!-- Body shadow -->
+          <ellipse cx="100" cy="270" rx="60" ry="8" fill="rgba(0,0,0,0.2)"/>
+
+          <!-- Body / shirt -->
+          <path d="M60 185 Q55 220 52 265 L148 265 Q145 220 140 185 Q120 175 100 175 Q80 175 60 185Z" fill="url(#shirtGrad)"/>
+
+          <!-- Shirt detail lines -->
+          <line x1="100" y1="180" x2="100" y2="265" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+          <!-- Collar -->
+          <path d="M85 180 Q100 195 115 180 L115 185 Q100 200 85 185Z" fill="rgba(255,255,255,0.15)"/>
+
+          <!-- Left arm -->
+          <path d="M60 185 Q45 210 50 240 Q55 245 62 240 Q65 215 72 195Z" fill="url(#skinGrad)"/>
+          <!-- Right arm -->
+          <path d="M140 185 Q155 210 150 240 Q145 245 138 240 Q135 215 128 195Z" fill="url(#skinGrad)"/>
+
+          <!-- Left hand with laptop effect -->
+          <ellipse cx="51" cy="242" rx="10" ry="7" fill="url(#skinGrad)"/>
+          <!-- Right hand -->
+          <ellipse cx="149" cy="242" rx="10" ry="7" fill="url(#skinGrad)"/>
+
+          <!-- Neck -->
+          <rect x="92" y="158" width="16" height="22" rx="8" fill="url(#skinGrad)"/>
+
+          <!-- Head -->
+          <ellipse cx="100" cy="130" rx="44" ry="46" fill="url(#skinGrad)" filter="url(#softShadow)"/>
+
+          <!-- Hair - back layer -->
+          <path d="M58 118 Q56 80 100 68 Q144 80 142 118 Q138 108 130 95 Q115 82 100 80 Q85 82 70 95 Q62 108 58 118Z" fill="url(#hairGrad)"/>
+
+          <!-- Ears -->
+          <ellipse cx="57" cy="130" rx="8" ry="10" fill="#e8a882"/>
+          <ellipse cx="143" cy="130" rx="8" ry="10" fill="#e8a882"/>
+          <ellipse cx="57" cy="130" rx="5" ry="7" fill="#d4876a"/>
+          <ellipse cx="143" cy="130" rx="5" ry="7" fill="#d4876a"/>
+
+          <!-- Hair - front layer -->
+          <path d="M58 118 Q60 100 70 90 Q80 78 100 76 Q120 78 130 90 Q140 100 142 118 Q135 95 120 88 Q110 84 100 84 Q90 84 80 88 Q65 95 58 118Z" fill="url(#hairGrad)"/>
+
+          <!-- Hair top/bangs -->
+          <path d="M68 105 Q72 85 90 80 Q100 78 110 80 Q128 85 132 105" fill="url(#hairGrad)" stroke="url(#hairGrad)" stroke-width="2"/>
+
+          <!-- Side hair strands -->
+          <path d="M58 118 Q52 135 55 155 Q60 165 66 160 Q62 148 62 135 Q62 125 64 118Z" fill="url(#hairGrad)"/>
+          <path d="M142 118 Q148 135 145 155 Q140 165 134 160 Q138 148 138 135 Q138 125 136 118Z" fill="url(#hairGrad)"/>
+
+          <!-- Eyes -->
+          <!-- Left eye area -->
+          <ellipse cx="85" cy="128" rx="13" ry="9" fill="white"/>
+          <ellipse cx="85" cy="129" rx="8" ry="7" fill="#3d1a00"/>
+          <ellipse cx="85" cy="129" rx="5" ry="5" fill="#1a0800"/>
+          <ellipse cx="82" cy="126" rx="2" ry="2" fill="white"/>
+          <ellipse cx="87" cy="130" rx="1" ry="1" fill="white"/>
+          <!-- Left lashes -->
+          <path d="M73 122 Q78 120 82 123" stroke="#1a0800" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M85 120 Q87 118 90 120" stroke="#1a0800" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M91 122 Q94 121 97 124" stroke="#1a0800" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+          <!-- Right eye area -->
+          <ellipse cx="115" cy="128" rx="13" ry="9" fill="white"/>
+          <ellipse cx="115" cy="129" rx="8" ry="7" fill="#3d1a00"/>
+          <ellipse cx="115" cy="129" rx="5" ry="5" fill="#1a0800"/>
+          <ellipse cx="112" cy="126" rx="2" ry="2" fill="white"/>
+          <ellipse cx="117" cy="130" rx="1" ry="1" fill="white"/>
+          <!-- Right lashes -->
+          <path d="M103 122 Q108 120 112 123" stroke="#1a0800" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M115 120 Q117 118 120 120" stroke="#1a0800" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M121 122 Q124 121 127 124" stroke="#1a0800" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+          <!-- Eyebrows -->
+          <path d="M73 117 Q82 112 93 115" stroke="#2d1004" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M107 115 Q118 112 127 117" stroke="#2d1004" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+          <!-- Nose -->
+          <path d="M96 138 Q100 148 104 138" stroke="#c48760" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <ellipse cx="96" cy="144" rx="3" ry="2" fill="rgba(0,0,0,0.08)"/>
+          <ellipse cx="104" cy="144" rx="3" ry="2" fill="rgba(0,0,0,0.08)"/>
+
+          <!-- Mouth - smile -->
+          <path d="M88 156 Q100 166 112 156" stroke="#c0726a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M91 156 Q100 162 109 156" fill="#e87070" opacity="0.5"/>
+
+          <!-- Cheeks blush -->
+          <ellipse cx="74" cy="140" rx="10" ry="7" fill="#f4a0a0" opacity="0.35"/>
+          <ellipse cx="126" cy="140" rx="10" ry="7" fill="#f4a0a0" opacity="0.35"/>
+
+          <!-- Glasses -->
+          <rect x="73" y="121" width="26" height="18" rx="6" fill="url(#glassGrad)" stroke="#818cf8" stroke-width="1.5"/>
+          <rect x="103" y="121" width="26" height="18" rx="6" fill="url(#glassGrad)" stroke="#818cf8" stroke-width="1.5"/>
+          <line x1="99" y1="130" x2="103" y2="130" stroke="#818cf8" stroke-width="1.5"/>
+          <line x1="57" y1="130" x2="73" y2="130" stroke="#818cf8" stroke-width="1.5"/>
+          <line x1="129" y1="130" x2="143" y2="130" stroke="#818cf8" stroke-width="1.5"/>
+
+          <!-- Earrings -->
+          <circle cx="57" cy="138" r="4" fill="#c084fc"/>
+          <circle cx="143" cy="138" r="4" fill="#c084fc"/>
+          <circle cx="57" cy="145" r="3" fill="#818cf8"/>
+          <circle cx="143" cy="145" r="3" fill="#818cf8"/>
+
+          <!-- Laptop (held) -->
+          <rect x="38" y="245" width="124" height="18" rx="4" fill="#1e1e2e" stroke="#333350" stroke-width="1"/>
+          <rect x="44" y="235" width="112" height="14" rx="3" fill="#252535" stroke="#333350" stroke-width="1"/>
+          <!-- Screen glow on face -->
+          <rect x="46" y="237" width="108" height="10" rx="2" fill="#4f46e5" opacity="0.3"/>
+          <!-- Keyboard dots -->
+          <circle cx="56" cy="250" r="1.5" fill="#4a4a6a"/>
+          <circle cx="65" cy="250" r="1.5" fill="#4a4a6a"/>
+          <circle cx="74" cy="250" r="1.5" fill="#4a4a6a"/>
+          <circle cx="100" cy="254" rx="20" ry="3" fill="#333350" rx="3"/>
+          <rect x="80" y="252" width="40" height="5" rx="2.5" fill="#333350"/>
+
+          <!-- Bindi (small dot) -->
+          <circle cx="100" cy="108" r="3" fill="#c084fc"/>
+
+          <animate attributeName="transform" values="translate(0,0);translate(0,-6);translate(0,0)" dur="4s" repeatCount="indefinite"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="max-w">
+    <p class="section-label fade-up">About Me</p>
+    <h2 class="section-title fade-up">A girl who codes<br>and designs.</h2>
+
+    <div class="about-grid">
+      <div class="about-img-wrap fade-up">
+        <div class="about-img-box">
+          <img src="https://media.licdn.com/dms/image/v2/D4D03AQECBn3HBbNVaA/profile-displayphoto-crop_800_800/B4DZqTDfkHJEAI-/0/1763403760532?e=1773273600&v=beta&t=OT8i8u-2Y496_Ts6ZOZqwZdyiBXqET6KyLoWSUggKww" alt="Nishi Patidar" onerror="this.style.display='none'"/>
+        </div>
+        <div class="about-deco"></div>
+        <div class="about-deco2"></div>
+      </div>
+
+      <div class="about-text fade-up">
+        <p>I'm a <strong>Computer Science student at AITR</strong> with a deep passion for bridging the gap between complex engineering and intuitive design. I don't just write code — I build digital experiences that solve real-world problems.</p>
+        <p>Currently exploring the intersection of <strong>AI and Frontend Development</strong>, always looking for the next challenge that pushes me to grow. I believe the best products happen when logic meets empathy.</p>
+        <p>When I'm not coding, I'm sketching out wireframes, exploring design systems, or trying to find creative solutions to everyday friction. Design isn't what I do — it's how I think.</p>
+
+        <div class="about-chips">
+          <span class="chip">AITR, Indore</span>
+          <span class="chip">CS Engineering</span>
+          <span class="chip">Open to Internships</span>
+          <span class="chip">Full-Stack</span>
+          <span class="chip">UI/UX</span>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-box">
+            <span class="stat-num">4+</span>
+            <span class="stat-label">Projects Built</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">2+</span>
+            <span class="stat-label">Years Learning</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">10+</span>
+            <span class="stat-label">Skills Gained</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="max-w">
+    <p class="section-label fade-up">Selected Work</p>
+    <h2 class="section-title fade-up">Projects that matter.</h2>
+    <p class="section-sub fade-up">From healthcare AI to travel apps — each project is a story of problem-solving through design and code.</p>
+
+    <div class="projects-grid fade-up">
+      <!-- Project 1 -->
+      <a href="#" class="project-card">
+        <div class="project-thumb" style="background: linear-gradient(135deg, #0f172a, #1e3a5f);">
+          <div class="project-thumb-bg" style="color: #38bdf8;"></div>
+          <span class="project-thumb-icon">🏥</span>
+        </div>
+        <div class="project-body">
+          <span class="project-tag">Healthcare · AI</span>
+          <p class="project-name">HealthCare+</p>
+          <p class="project-desc">AI-powered emergency and wellness platform designed to reduce friction in critical health moments.</p>
+        </div>
+        <div class="project-footer">
+          <div class="project-links">
+            <a href="#" class="project-link">Figma Case Study <span class="p-arrow">↗</span></a>
+          </div>
+          <span style="font-size:0.75rem; color:var(--muted);">UI/UX · Prototype</span>
+        </div>
+      </a>
+
+      <!-- Project 2 -->
+      <a href="#" class="project-card">
+        <div class="project-thumb" style="background: linear-gradient(135deg, #0f2518, #1a4a2e);">
+          <div class="project-thumb-bg" style="color: #4ade80;"></div>
+          <span class="project-thumb-icon">✈️</span>
+        </div>
+        <div class="project-body">
+          <span class="project-tag">Travel · Product Design</span>
+          <p class="project-name">Vigovia — Itinerary App</p>
+          <p class="project-desc">A seamless travel planner that turns overwhelming trip planning into a delightful, structured experience.</p>
+        </div>
+        <div class="project-footer">
+          <div class="project-links">
+            <a href="#" class="project-link">View Design <span class="p-arrow">↗</span></a>
+          </div>
+          <span style="font-size:0.75rem; color:var(--muted);">UX Research · UI</span>
+        </div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="https://github.com/nishi-patidar" target="_blank" class="project-card">
+        <div class="project-thumb" style="background: linear-gradient(135deg, #120f1e, #2a1f4a);">
+          <div class="project-thumb-bg" style="color: #c084fc;"></div>
+          <span class="project-thumb-icon">👁️</span>
+        </div>
+        <div class="project-body">
+          <span class="project-tag">Open Source · Analytics</span>
+          <p class="project-name">Git Gaze</p>
+          <p class="project-desc">GitHub statistics visualizer for contributors — making open source data beautiful and digestible.</p>
+        </div>
+        <div class="project-footer">
+          <div class="project-links">
+            <a href="https://github.com/nishi-patidar" target="_blank" class="project-link">GitHub <span class="p-arrow">↗</span></a>
+          </div>
+          <span style="font-size:0.75rem; color:var(--muted);">React · Data Viz</span>
+        </div>
+      </a>
+
+      <!-- Project 4 -->
+      <a href="#" class="project-card">
+        <div class="project-thumb" style="background: linear-gradient(135deg, #1e1408, #3d2a0f);">
+          <div class="project-thumb-bg" style="color: #f59e0b;"></div>
+          <span class="project-thumb-icon">🌾</span>
+        </div>
+        <div class="project-body">
+          <span class="project-tag">Web Design · Social Impact</span>
+          <p class="project-name">Grain2Gain</p>
+          <p class="project-desc">Surplus food management platform connecting donors and recipients to reduce food waste at scale.</p>
+        </div>
+        <div class="project-footer">
+          <div class="project-links">
+            <a href="#" class="project-link">Case Study <span class="p-arrow">↗</span></a>
+          </div>
+          <span style="font-size:0.75rem; color:var(--muted);">Web Design · UX</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="max-w">
+    <p class="section-label fade-up">Tech Stack</p>
+    <h2 class="section-title fade-up">Tools I build with.</h2>
+    <p class="section-sub fade-up">From frontend frameworks to design tools — here's what's in my toolkit.</p>
+
+    <div class="skills-grid fade-up">
+
+      <!-- HTML5 -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"/><path fill="#F16529" d="M64 116.8l36.378-10.086 8.559-95.878H64z"/><path fill="#EBEBEB" d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"/><path fill="#fff" d="M63.966 52.455v13.763h16.996l-1.6 17.914-15.396 4.143v14.319l28.212-7.82.207-2.325 3.234-36.233.335-3.761zm0-27.856v13.762h33.253l.276-3.092.628-6.978.329-3.692z"/></svg>
+        </span>
+        <span class="skill-name">HTML5</span>
+      </div>
+
+      <!-- CSS3 -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z"/><path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354H64.001v106.49z"/><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95zM64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018z"/><path fill="#EBEBEB" d="M63.952 51.429v13.831H46.584L45.308 51.429zM64.083 87.349v13.488l-28.344-7.858-1.937-21.717h13.982l.985 11.031z"/><path fill="#fff" d="M64.001 23.435v13.831h34.013l.307-3.444.663-7.498.32-2.889zM64.001 51.429h30.95l-.275 3.145-3.165 35.508-.26 2.728-27.25 7.56V87.349l15.396-4.155 1.6-17.92H64.001z"/></svg>
+        </span>
+        <span class="skill-name">CSS3</span>
+      </div>
+
+      <!-- JavaScript -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#F0DB4F" d="M1.408 1.408h125.184v125.185H1.408z"/><path fill="#323330" d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 5.391-3.475 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.613-6.52-2.975-9.075-6.bones-5.497 3.146-5.497 3.146-9.131 5.237 1.051 2.166 2.166 3.108 3.48 4.485 7.52 7.592 26.256 7.236 29.996-3.154.285-.846.523-1.733.617-2.642.45-4.237-.17-7.498-.17-7.498zm-45.108-43.054H60.666c0 11.8-.048 23.516-.048 35.335 0 7.508.388 14.44-.837 16.568-1.332 3.355-4.768 2.954-6.333 2.333-1.615-.706-2.451-1.721-3.463-3.141-.261-.445-.452-.809-.536-.857l-9.439 5.831c1.563 3.214 3.871 5.984 6.87 7.785 4.733 2.641 11.272 3.bezier 17.67 1.621 4.439-1.344 8.34-4.583 10.181-9.015 2.214-5.529 1.721-12.403 1.712-20.015.018-11.866 0-23.728 0-35.635z"/></svg>
+        </span>
+        <span class="skill-name">JavaScript</span>
+      </div>
+
+      <!-- React -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/><path d="M107.3 45.2c-2.2-.8-4.5-1.6-6.9-2.3.6-2.4 1.1-4.8 1.5-7.1 2.1-13-1.2-21.8-9.6-26.6-8.2-4.7-19.5-1-31.2 10.7-4.4-4.3-9-7.7-13.5-10.1C38.5-.1 28.2-1.2 20.7 3.1 13.4 7.5 10 17.8 11.8 32.4c.3 2.5.9 5.1 1.6 7.7C10.9 41.1 8.5 42 6.3 43c-12 5.4-18.7 13.4-18.7 22.5s6.7 17 18.5 22.5c2.5 1.1 5.1 2.1 7.9 2.9-.6 2.6-1.1 5.2-1.4 7.7-1.8 14.7 1.5 24.9 8.8 29.3 3.3 2 7.1 2.9 11.5 2.9 7.2 0 15.7-2.9 24.4-8.8 4.5 4.4 9 7.8 13.5 10.1 8.1 4.6 18.4 5.6 25.9 1.4 7.3-4.4 10.7-14.7 8.9-29.4-.3-2.5-.9-5.1-1.6-7.8 2.5-.8 4.9-1.7 7.2-2.6 12-5.4 18.7-13.4 18.7-22.5s-6.8-17.1-18.8-22.5zM96.1 16.2c5 2.9 7.1 9.5 5.5 20.4-.3 2.1-.8 4.3-1.4 6.6-5.3-1.2-11-2.1-17.1-2.6-.7-1.1-1.4-2.1-2.1-3.1-1.8-2.6-3.7-5.2-5.6-7.7 4.3-4.5 8.5-7.8 12.1-9.4 2.1-.9 3.9-1.3 5.4-1.3 1 0 1.9.2 2.7.7l.5.3zm-49.4 2.3c3.5 1.6 7.7 4.8 12 9.3-2 2.6-3.9 5.2-5.6 7.8-.8 1.1-1.5 2.2-2.3 3.3-6.1.5-11.8 1.5-17.1 2.8-.6-2.3-1.1-4.5-1.4-6.7C31.1 25.9 33.1 19.3 38 16.3c2.7-1.6 6-1.7 8.7-.5v.7zm-12.4 64.4c-1.4-2.4-2.7-4.9-3.9-7.4 1.2-2.5 2.5-5 3.9-7.5 1.3-2.4 2.7-4.8 4.2-7.1.5 2.9.8 5.9.9 9 0 3-.2 6-.7 8.9-1.4-2.3-2.8-4.6-4.4-6.8zm3.1 19.7c-4.9-2.9-7.1-9.5-5.5-20.4.3-2 .8-4.2 1.4-6.4 5.3 1.2 11 2.1 17.1 2.6.7 1.1 1.4 2.1 2.1 3.1 1.8 2.6 3.7 5.2 5.6 7.7-4.3 4.5-8.5 7.8-12.1 9.4-2.1.9-3.9 1.3-5.4 1.3-1.2-.1-2.1-.3-3.2-.9v-.4zm34.4 8.2c-3.5-1.6-7.7-4.8-12-9.3 2-2.6 3.9-5.2 5.6-7.8.8-1.1 1.5-2.2 2.3-3.3 6.1-.5 11.8-1.5 17.1-2.8.6 2.3 1.1 4.5 1.4 6.7 1.7 11-1.4 17.6-6.3 20.6-1.3.8-2.7 1.1-4.2 1.1-1 0-1.9-.2-3.9-5.2zm10.8-16.7l-1 .1c-.6-1.1-1.2-2.2-1.9-3.3-1.8-2.6-3.7-5.2-5.6-7.7 4.3-4.5 8.5-7.8 12.1-9.4 2.1-.9 3.9-1.3 5.4-1.3.9 0 1.8.2 2.7.6l.5.3c5 2.9 7.1 9.5 5.5 20.4-.3 2.1-.8 4.3-1.4 6.6-2.1-.5-4.3-1-6.8-1.3 1.5-3 2.7-6.1 3.5-9.2-.6 2.3-1.2 4.5-1.9 6.7-.9-.1-1.7-.2-2.6-.3 1.3-2.7 2.4-5.5 3.2-8.4-.1 2.8-.4 5.6-.9 8.4zm-4.7-19.4c2.1 2.8 4 5.7 5.8 8.7H64c0-3-.2-6-.7-8.9 0-.3-.1-.7-.1-1 .7-1.1 1.5-2.2 2.2-3.3 2.1-2.9 4.2-5.7 6.5-8.4zm-17.6 19.2c2.7 0 5.5-.1 8.2-.3-1.3 2.3-2.7 4.5-4.2 6.6-1.5-2.1-2.9-4.3-4-6.3zm-8.2-35.4c1.1 2 2.5 4.3 4 6.4-1.5 2.1-2.9 4.3-4.2 6.6-2.7-.3-5.4-.5-8-.8 1.3-4.3 3-8.3 5.1-12.2 1 0 2 0 3.1 0zm7.4-4.1c2.7.3 5.4.6 8.1 1.1 1.4 2.4 2.7 4.9 3.9 7.5-1.2 2.5-2.5 5-3.9 7.5-2.7.4-5.5.7-8.2.7-2.7 0-5.5-.3-8.2-.7-1.4-2.5-2.7-5-3.9-7.5 1.2-2.5 2.5-5 3.9-7.5 2.7-.4 5.5-.7 8.2-.7l.1-.4zm-8 22.5c1.1 2 2.5 4.2 4 6.3-1.5-2.1-2.9-4.3-4-6.3zm36.2-13.3c-1.1-2-2.5-4.3-4-6.4 1.5-2.1 2.9-4.3 4.2-6.6 2.7.3 5.4.5 8 .8-1.3 4.3-3 8.3-5.1 12.2-1.1 0-2.1 0-3.1 0zM64 42.7c-1.2 1.6-2.3 3.2-3.4 4.8 1.1-1.6 2.2-3.2 3.4-4.8zm0 42.7c1.2-1.6 2.3-3.2 3.4-4.8-1.1 1.6-2.2 3.2-3.4 4.8z"/></g></svg>
+        </span>
+        <span class="skill-name">React</span>
+      </div>
+
+      <!-- Node.js -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#83CD29" d="M112.771 30.334L68.674 4.729c-2.781-1.584-6.402-1.584-9.455 0L14.901 30.334C12.031 31.985 10 35.088 10 38.407v51.142c0 3.319 2.084 6.423 4.954 8.083l11.775 6.688c5.628 2.772 7.617 2.772 10.178 2.772 8.333 0 13.093-5.039 13.093-13.828v-50.49c0-.713-.371-1.774-1.071-1.774h-5.623C42.594 41 42 42.061 42 42.773v50.49c0 3.896-3.524 7.773-10.11 4.48L20.555 90.72c-.334-.378-.555-.461-.555-1.171V38.407c0-.71.377-1.222.76-1.396l44.133-25.604c.385-.249.893-.249 1.209 0l44.129 25.604c.386.274.763.786.763 1.396v51.142c0 .71-.249 1.093-.614 1.271L66.076 116.47c-.293.166-.638.166-.918-.044l-11.615-6.735c-.31-.183-.747-.244-1.052-.086-3.452 1.942-4.093 2.183-7.427 3.316-.814.293-2.065.7.452 2.15l15.225 8.678c1.359.775 2.85 1.259 4.418 1.259 1.569 0 3.059-.484 4.418-1.259l44.047-25.604c2.87-1.661 4.953-4.764 4.953-8.083V38.407c0-3.319-2.084-6.422-4.806-8.073zM77.369 87.218c-11.854 0-14.335-3.43-15.159-10.235-.105-.628-.628-1.094-1.256-1.094h-5.16c-.71 0-1.27.593-1.27 1.304 0 7.992 4.35 17.986 22.845 17.986 13.659 0 21.494-5.537 21.494-15.229 0-9.745-6.571-12.321-20.372-14.136-13.953-1.843-15.384-2.754-15.384-5.983 0-2.669 1.115-6.229 10.503-6.229 8.437 0 11.56 1.819 12.834 7.512.105.628.634 1.094 1.298 1.094h5.144a1.27 1.27 0 00.901-.374 1.27 1.27 0 00.368-.93c-.826-9.91-7.396-14.528-20.545-14.528-11.734 0-18.741 4.985-18.741 13.331 0 9.745 7.512 12.445 19.854 13.665 14.722 1.464 15.902 3.659 15.902 6.302 0 4.883-3.897 6.944-13.051 6.944z"/></svg>
+        </span>
+        <span class="skill-name">Node.js</span>
+      </div>
+
+      <!-- Python -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><linearGradient id="pyBlue" x1="70.252" y1="1237.476" x2="170.659" y2="1151.089" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stop-color="#5A9FD4"/><stop offset="1" stop-color="#306998"/></linearGradient><linearGradient id="pyYellow" x1="209.474" y1="1098.811" x2="173.62" y2="1149.537" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stop-color="#FFD43B"/><stop offset="1" stop-color="#FFE873"/></linearGradient><path fill="url(#pyBlue)" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"/><path fill="url(#pyYellow)" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"/></svg>
+        </span>
+        <span class="skill-name">Python</span>
+      </div>
+
+      <!-- C++ -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#9C033A" d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.9-.1-1.9-.4-2.6zM64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c6.2 0 11.8 2.3 16.1 6.1l-7.8 7.8c-2.2-2.1-5.2-3.4-8.3-3.4-6.9 0-12.5 5.6-12.5 12.5s5.6 12.5 12.5 12.5c5.7 0 10.5-3.8 12-9H64V54.5h23.5c.3 1.5.5 3.1.5 4.7 0 13.5-11 24.3-24 29.3zm39-12.5h-4v4h-4v-4h-4v-4h4v-4h4v4h4v4zm17 0h-4v4h-4v-4h-4v-4h4v-4h4v4h4v4z"/></svg>
+        </span>
+        <span class="skill-name">C++</span>
+      </div>
+
+      <!-- MongoDB -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#439934" d="M88.038 42.929C84.605 23.016 74.9 9.836 67.442 3.814a2.87 2.87 0 00-4.108.378c-.217.28-.378.698-.378 1.088v.234c.018 1.978.018 3.956-.504 5.888-1.296 4.758-4.398 8.444-7.644 11.944-11.538 12.42-17.83 26.532-17.154 42.228.018.504.036 1.008.072 1.512.18 2.466.396 4.968.864 7.38.756 4.05 1.98 7.83 3.708 11.43a47.64 47.64 0 009.684 14.112c5.508 5.688 11.772 9.594 18.162 11.736.18.054.342.108.54.162.18-.054.342-.108.54-.162 6.39-2.142 12.654-6.048 18.162-11.736a47.64 47.64 0 009.684-14.112c1.728-3.6 2.952-7.38 3.708-11.43.468-2.412.684-4.914.864-7.38.036-.504.054-1.008.072-1.512.324-9.288-1.602-18.378-7.722-26.226z"/><path fill="#00684A" d="M64.422 96.012c.054.756.108 1.476.144 2.178.108 1.584.162 3.024.18 4.32v.234c0 .378-.054.738-.162 1.062l.162.072.162-.072c-.108-.324-.162-.684-.162-1.062v-.234c.018-1.296.072-2.736.18-4.32.036-.702.09-1.422.144-2.178-.144-1.44-.252-2.88-.342-4.32a64.5 64.5 0 00-.162 4.32zm.162 7.758c.09.198.198.396.306.576l-.306-.576zm-3.618-47.628L61.992 83.1l-.342 7.686c.072.576.144 1.152.198 1.764.108 1.188.198 2.412.288 3.636.09 1.44.162 2.898.234 4.356l-.162 1.044v.072c-.018.468-.054.918-.09 1.368.09 1.134.234 2.268.378 3.42.144-1.152.288-2.286.378-3.42-.036-.45-.072-.9-.09-1.368v-.072l-.162-1.044c.072-1.458.144-2.916.234-4.356.09-1.224.18-2.448.288-3.636.054-.612.126-1.188.198-1.764l-.342-7.686.036-26.958a.626.626 0 00-.054-.252.748.748 0 00-.054.252zm4.23 57.618l-.306.576a4.7 4.7 0 00.306-.576z"/></svg>
+        </span>
+        <span class="skill-name">MongoDB</span>
+      </div>
+
+      <!-- Figma -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#0ACF83" d="M45.5 129c11.9 0 21.5-9.6 21.5-21.5V86H45.5C33.6 86 24 95.6 24 107.5S33.6 129 45.5 129z"/><path fill="#A259FF" d="M24 64c0-11.9 9.6-21.5 21.5-21.5H67v43H45.5C33.6 85.5 24 75.9 24 64z"/><path fill="#F24E1E" d="M24 20.5C24 8.6 33.6-1 45.5-1H67v43H45.5C33.6 42 24 32.4 24 20.5z"/><path fill="#FF7262" d="M67-1h21.5C100.4-1 110 8.6 110 20.5S100.4 42 88.5 42H67V-1z"/><path fill="#1ABCFE" d="M110 64c0 11.9-9.6 21.5-21.5 21.5S67 75.9 67 64s9.6-21.5 21.5-21.5S110 52.1 110 64z"/></svg>
+        </span>
+        <span class="skill-name">Figma</span>
+      </div>
+
+      <!-- Git -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#F34F29" d="M124.742 58.378L69.625 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.685 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314 2.703 2.706 3.462 6.607 2.293 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295 3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 01-13.683 0 9.677 9.677 0 01-2.105-10.521L68.574 47.933l-.002 34.341a9.708 9.708 0 012.559 1.828c3.778 3.777 3.778 9.898 0 13.683-3.779 3.777-9.904 3.777-13.679 0-3.778-3.785-3.778-9.906 0-13.683a9.65 9.65 0 013.167-2.11V47.333a9.581 9.581 0 01-3.167-2.105c-2.726-2.728-3.462-6.732-2.219-10.138L41.115 20.605 3.256 58.488c-3.174 3.172-3.174 8.32 0 11.497l55.117 55.117c3.174 3.174 8.32 3.174 11.499 0l54.869-54.869c3.178-3.175 3.178-8.322.001-11.855z"/></svg>
+        </span>
+        <span class="skill-name">Git</span>
+      </div>
+
+      <!-- GitHub -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#fff" d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"/><path fill="#fff" d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm2.446 2.729c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zm2.382 3.477c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm3.261 3.361c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.544zm4.5 1.951c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm4.943.361c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm4.598-.782c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"/></svg>
+        </span>
+        <span class="skill-name">GitHub</span>
+      </div>
+
+      <!-- Tailwind CSS -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><path d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.597-6.399 8.531-13.867 11.73-22.399 9.597-4.87-1.214-8.347-4.745-12.207-8.66C55.128 71.371 47.868 64 32.004 64zm0 0" fill="#38BDF8"/></svg>
+        </span>
+        <span class="skill-name">Tailwind CSS</span>
+      </div>
+
+      <!-- TypeScript -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#007ACC" d="M2 63.91v62.5h125v-125H2zm100.73-5a15.56 15.56 0 017.82 4.5 20.58 20.58 0 013 4c0 .16-5.4 3.81-8.69 5.85-.12.08-.6-.44-1.13-1.23a7.09 7.09 0 00-5.87-3.53c-3.79-.26-6.23 1.73-6.21 5a4.58 4.58 0 00.54 2.34c.83 1.73 2.38 2.76 7.24 4.86 8.95 3.85 12.78 6.39 15.16 10 2.66 4 3.25 10.46 1.45 15.24-2 5.2-6.9 8.73-13.83 9.9a38.32 38.32 0 01-9.52-.1 23 23 0 01-12.72-6.63c-1.15-1.27-3.39-4.58-3.25-4.82a9.34 9.34 0 011.15-.73l4.6-2.64 3.59-2.08.75 1.11a16.78 16.78 0 004.24 4.19 13.38 13.38 0 007.51 1.73c6.23-.41 10.22-3.19 10.38-7.32a5 5 0 00-.57-2.84c-.83-1.68-2.46-2.79-7.08-4.82-5.33-2.3-8.38-3.93-11.19-6.29a17.08 17.08 0 01-4.69-6.93 16 16 0 01-.12-6.38c1.39-6.67 6.29-11.45 13.41-13a31 31 0 018-.28zm-31.52 4.84l.06 5h-16v45.43H45.55V68.86H29.7v-4.84c0-2.68.06-4.9.13-4.94.08 0 9.64-.06 21.31-.08l21.17-.05z"/></svg>
+        </span>
+        <span class="skill-name">TypeScript</span>
+      </div>
+
+      <!-- Canva -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><circle cx="64" cy="64" r="64" fill="#7D2AE7"/><path fill="#fff" d="M96.5 64c0 18-14.5 32.5-32.5 32.5S31.5 82 31.5 64 46 31.5 64 31.5 96.5 46 96.5 64zm-22.4 9.8c-1.5 2.4-4 3.9-6.6 3.9-4.5 0-7.8-3.6-7.8-8.4 0-4.6 3.2-7.7 7.7-7.7 2.7 0 5.1 1.4 6.5 3.7l7.8-4.5c-3-5.1-8.5-8.4-14.6-8.4-9.7 0-17 7.2-17 16.9 0 9.9 7.3 17.7 17 17.7 6.1 0 11.7-3.4 14.8-8.7z"/></svg>
+        </span>
+        <span class="skill-name">Canva</span>
+      </div>
+
+      <!-- VS Code -->
+      <div class="skill-item">
+        <span class="skill-logo">
+          <svg viewBox="0 0 128 128" class="skill-svg"><path fill="#0065A9" d="M90.767 127.126a10.369 10.369 0 006.995-2.341l26.354-22.681c2.592-2.226 4.11-5.519 4.11-9.015V35.388c0-3.5-1.518-6.789-4.11-9.015L97.762 3.692a10.38 10.38 0 00-6.979-2.341c-2.24.049-4.408.933-6.095 2.5L13.34 69.236l-9.936-7.523A6.928 6.928 0 000 66.013v.004a6.931 6.931 0 003.405 5.3l9.935 7.522-9.935 7.519A6.93 6.93 0 000 91.658v.003a6.93 6.93 0 003.405 5.301l9.936 7.523 71.347 65.374a10.382 10.382 0 006.079 2.267zM96.953 31.862L55.15 64l41.803 32.138V31.862z"/></svg>
+        </span>
+        <span class="skill-name">VS Code</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="max-w">
+    <p class="section-label fade-up">Experience</p>
+    <h2 class="section-title fade-up">Where I've grown.</h2>
+    <p class="section-sub fade-up">Hands-on experience building real products, contributing to open source, and sharpening my craft.</p>
+
+    <div class="timeline fade-up">
+      <div class="timeline-item">
+        <div class="exp-meta">
+          <span class="exp-role">UI/UX Designer</span>
+          <span class="exp-company">Vigovia</span>
+          <span class="exp-date">2024</span>
+          <span class="exp-type">Freelance</span>
+        </div>
+        <p class="exp-desc">Designed the complete user experience for a travel itinerary app — from user research and wireframes to high-fidelity Figma prototypes. Focused on reducing planning friction for travelers.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="exp-meta">
+          <span class="exp-role">Open Source Contributor</span>
+          <span class="exp-company">Git Gaze</span>
+          <span class="exp-date">2024</span>
+          <span class="exp-type">Open Source</span>
+        </div>
+        <p class="exp-desc">Contributed frontend components and data visualization features to an open-source GitHub analytics tool. Worked with React and charting libraries to make contribution data beautiful.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="exp-meta">
+          <span class="exp-role">Full-Stack Developer</span>
+          <span class="exp-company">HealthCare+ (Hackathon)</span>
+          <span class="exp-date">2024</span>
+          <span class="exp-type">Hackathon Project</span>
+        </div>
+        <p class="exp-desc">Built an AI-powered healthcare platform in a hackathon setting. Led the frontend and design, integrating emergency features and wellness tracking with a clean, accessible interface.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="exp-meta">
+          <span class="exp-role">B.E. in Computer Science</span>
+          <span class="exp-company">AITR, Indore</span>
+          <span class="exp-date">2023 — Present</span>
+          <span class="exp-type">Education</span>
+        </div>
+        <p class="exp-desc">Currently pursuing a Bachelor's in Computer Science Engineering, with a focus on web development, data structures, and human-computer interaction. Actively building projects alongside coursework.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="max-w">
+    <div class="resume-card fade-up">
+      <div class="resume-text">
+        <h3>Want the full picture?</h3>
+        <p>My resume has all the details — projects, skills, and experiences laid out cleanly. Opens in Google Drive.</p>
+      </div>
+      <a href="https://drive.google.com/your-resume-link" target="_blank" class="resume-btn">
+        📄 View My Resume
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="max-w">
+    <p class="section-label fade-up">Let's Connect</p>
+    <h2 class="section-title fade-up">Let's create something.</h2>
+    <p class="section-sub fade-up">Whether it's a project, an internship opportunity, or just a hello — I'd love to hear from you.</p>
+
+    <div class="contact-grid fade-up">
+      <div>
+        <p style="color:var(--muted); margin-bottom: 0.5rem; font-size: 0.9rem;">Find me on</p>
+        <div class="contact-links">
+          <a href="https://linkedin.com/in/nishi-patidar" target="_blank" class="contact-link lk-li">
+            <div class="contact-link-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div class="contact-link-text">
+              <span class="contact-link-label">LinkedIn</span>
+              <span class="contact-link-value">nishi-patidar</span>
+            </div>
+          </a>
+          <a href="https://github.com/nishi-patidar" target="_blank" class="contact-link lk-gh">
+            <div class="contact-link-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--text)"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </div>
+            <div class="contact-link-text">
+              <span class="contact-link-label">GitHub</span>
+              <span class="contact-link-value">nishi-patidar</span>
+            </div>
+          </a>
+          <a href="mailto:nishi27patidar@outlook.com" class="contact-link lk-em">
+            <div class="contact-link-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            </div>
+            <div class="contact-link-text">
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-value">nishi27patidar@outlook.com</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-area">
+        <h3>Send a message</h3>
+        <div class="form-row">
+          <label>Your Name</label>
+          <input type="text" placeholder="Alex Johnson">
+        </div>
+        <div class="form-row">
+          <label>Email</label>
+          <input type="email" placeholder="hello@example.com">
+        </div>
+        <div class="form-row">
+          <label>Message</label>
+          <textarea placeholder="I'd love to work with you on..."></textarea>
+        </div>
+        <button class="form-submit" onclick="
+          const btn = this;
+          btn.textContent = 'Opening email...';
+          const name = document.querySelector('#contact input[type=text]').value;
+          const email = document.querySelector('#contact input[type=email]').value;
+          const msg = document.querySelector('#contact textarea').value;
+          window.location.href = 'mailto:nishi27patidar@outlook.com?subject=Hello from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent(msg + '\n\nFrom: ' + email);
+          setTimeout(() => { btn.textContent = 'Send Message ✉️'; }, 2000);
+        ">Send Message ✉️</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Crafted with ♥ by <span>Nishi Patidar</span> · 2025</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Nav active state
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let curr = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) curr = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + curr ? 'var(--text)' : '';
+    });
+  });
+
+  // Typewriter for hero badge
+  const titles = ['Developer', 'Designer', 'Coder', 'Creator'];
+  let ti = 0, ci = 0, del = false;
+  const tEl = document.querySelector('.float-tag.t1');
+  if (tEl) {
+    const icon = tEl.querySelector('.tag-icon');
+    setInterval(() => {
+      const word = titles[ti];
+      if (!del) {
+        ci++;
+        tEl.innerHTML = '';
+        tEl.appendChild(icon);
+        tEl.append(' ' + word.slice(0, ci));
+        if (ci === word.length) { del = true; setTimeout(() => {}, 1200); }
+      } else {
+        ci--;
+        tEl.innerHTML = '';
+        tEl.appendChild(icon);
+        tEl.append(' ' + word.slice(0, ci));
+        if (ci === 0) { del = false; ti = (ti + 1) % titles.length; }
+      }
+    }, 120);
+  }
+</script>
+</body>
+</html>
